@@ -40,16 +40,20 @@ public class Human {
     }
 
     public final String[] weaponTypes = {"Default","Fire","Ice"};
+    public int getWeaponTypeNum() {
+        Random random = new Random();
+        return random.nextInt(weaponTypes.length);
+    }
 
     public void checkJob(){
         if (getJob() == "Warrior"){
-            Warrior warrior = new Warrior(0);
+            Warrior warrior = new Warrior(getWeaponTypeNum());
         }
         if(getJob() == "Hunter"){
-            Hunter hunter = new Hunter(1);
+            Hunter hunter = new Hunter(getWeaponTypeNum());
         }
         if(getJob() == "Mage"){
-            Mage mage = new Mage(2);
+            Mage mage = new Mage(getWeaponTypeNum());
         }
     }
 
